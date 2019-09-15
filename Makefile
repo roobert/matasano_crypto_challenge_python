@@ -7,3 +7,5 @@ test:
 
 depends:
 	@pip3 install iteration_utilities pycryptodome
+./
+

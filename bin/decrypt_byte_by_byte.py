@@ -9,6 +9,7 @@ import time
 import re
 from base64 import *
 from ecb import *
+from time import perf_counter 
 
 secret = b64decode("Um9sbGluJyBpbiBteSA1LjAKV2l0aCBteSByYWctdG9wIGRvd24gc28gbXkg" \
        + "aGFpciBjYW4gYmxvdwpUaGUgZ2lybGllcyBvbiBzdGFuZGJ5IHdhdmluZyBq" \
@@ -28,9 +29,15 @@ print()
 print("  ECB byte by byte decryption ")
 print()
 
-plain_text = break_ecb_byte_by_byte(oracle_context, True).decode("ASCII")
+t_start = perf_counter()  
 
-print("\r  * decrypting: done!                  ")
+fast = not(len(sys.argv) > 1 and sys.argv[1] == "--fast")
+
+plain_text = break_ecb_byte_by_byte(oracle_context, fast).decode("ASCII")
+
+t_stop = perf_counter() 
+
+print("    *  decrypting done in ", t_stop - t_start, " seconds") 
 print()
 print("  * decrypted cipher text:")
 print()
