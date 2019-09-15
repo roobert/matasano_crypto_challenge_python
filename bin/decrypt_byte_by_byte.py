@@ -37,7 +37,7 @@ plain_text = break_ecb_byte_by_byte(oracle_context, fast).decode("ASCII")
 
 t_stop = perf_counter() 
 
-print("    *  decrypting done in ", t_stop - t_start, " seconds") 
+print("    *  decrypting done in {:2.3f} seconds".format(t_stop - t_start))
 print()
 print("  * decrypted cipher text:")
 print()
