@@ -29,7 +29,7 @@ class TestChallenge3(unittest.TestCase):
     message = "1b37373331363f78151b7f2b783431333d78397828372d363c78373e783a393b3736"
     target = "Cooking MC's like a pound of bacon"
 
-    def test_challenge2(self):
+    def test_challenge3(self):
         message = find_max(score(self.message), "score")["message"]
 
         self.assertEqual(self.target, message)
