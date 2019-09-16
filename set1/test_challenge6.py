@@ -49,7 +49,9 @@
 # block. Put them together and you have the key.
 
 import sys
-sys.path.append('../lib')
+import os
+DIR_PATH = os.path.join(os.path.dirname(__file__))
+sys.path.append(os.path.join(DIR_PATH, "../lib"))
 
 import unittest
 from binascii import hexlify
@@ -60,7 +62,7 @@ from detect_single_character_xor import *
 from results import *
 
 class TestChallenge6(unittest.TestCase):
-    with open("data/6.txt", encoding="ISO-8859-1") as file:
+    with open(os.path.join(DIR_PATH, "data/6.txt"), encoding="ISO-8859-1") as file:
         data = file.read()
 
     encrypted_bytes = b64decode(data)
@@ -101,7 +103,7 @@ class TestChallenge6(unittest.TestCase):
 
         decrypted_message = repeating_xor(self.encrypted_bytes, key.encode("ASCII"))
 
-        with open("data/6-decrypted.txt", encoding="ISO-8859-1") as file:
+        with open(os.path.join(DIR_PATH, "data/6-decrypted.txt"), encoding="ISO-8859-1") as file:
             target = file.read()
 
         self.assertEqual(decrypted_message.decode("ASCII"), target)

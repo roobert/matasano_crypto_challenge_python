@@ -19,7 +19,9 @@
 # with an IV of all ASCII 0 (\x00\x00\x00 &c)
 
 import sys
-sys.path.append('../lib')
+import os
+DIR_PATH = os.path.join(os.path.dirname(__file__))
+sys.path.append(os.path.join(DIR_PATH, "../lib"))
 
 import unittest
 from base64 import b64decode
@@ -27,10 +29,10 @@ from padding import *
 from ecb import *
 
 class TestChallenge2(unittest.TestCase):
-    with open("../set2/data/10.txt", encoding="ISO-8859-1") as file:
+    with open(os.path.join(DIR_PATH, "../set2/data/10.txt"), encoding="ISO-8859-1") as file:
         data = file.read()
 
-    with open("../set2/data/10-decrypted.txt", encoding="ISO-8859-1") as file:
+    with open(os.path.join(DIR_PATH, "../set2/data/10-decrypted.txt"), encoding="ISO-8859-1") as file:
         target = file.read()
 
     def test_decrypt_ecb_cbc(self):

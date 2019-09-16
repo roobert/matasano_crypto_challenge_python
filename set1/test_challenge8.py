@@ -13,7 +13,9 @@
 # the same 16 byte ciphertext.
 
 import sys
-sys.path.append('../lib')
+import os
+DIR_PATH = os.path.join(os.path.dirname(__file__))
+sys.path.append(os.path.join(DIR_PATH, "../lib"))
 
 import unittest
 from pprint import pprint
@@ -23,7 +25,7 @@ from iteration_utilities import grouper
 from results import *
 
 class TestChallenge8(unittest.TestCase):
-    with open("data/8.txt", encoding="ISO-8859-1") as file:
+    with open(os.path.join(DIR_PATH, "data/8.txt"), encoding="ISO-8859-1") as file:
         data = file.readlines()
 
     target = "d880619740a8a19b7840a8a31c810a3d08649af70dc06f4fd5d2d69c74" \

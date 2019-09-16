@@ -14,7 +14,9 @@
 # The particulars of this algorithm are easy to find online.
 
 import sys
-sys.path.append('../lib')
+import os
+DIR_PATH = os.path.join(os.path.dirname(__file__))
+sys.path.append(os.path.join(DIR_PATH, "../lib"))
 
 import unittest
 from padding import *

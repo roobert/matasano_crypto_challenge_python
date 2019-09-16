@@ -19,7 +19,9 @@
 # Use OpenSSL::Cipher and give it AES-128-ECB as the cipher.
 
 import sys
-sys.path.append('../lib')
+import os
+DIR_PATH = os.path.join(os.path.dirname(__file__))
+sys.path.append(os.path.join(DIR_PATH, "../lib"))
 
 import unittest
 from pprint import pprint
@@ -27,10 +29,10 @@ from Crypto.Cipher import AES
 from base64 import b64decode
 
 class TestChallenge7(unittest.TestCase):
-    with open("data/7.txt", encoding="ISO-8859-1") as file:
+    with open(os.path.join(DIR_PATH, "data/7.txt"), encoding="ISO-8859-1") as file:
         data = b64decode(file.read())
 
-    with open("data/7-decrypted.txt", encoding="ISO-8859-1") as file:
+    with open(os.path.join(DIR_PATH, "data/7-decrypted.txt"), encoding="ISO-8859-1") as file:
         target = file.read().encode("ASCII") + b"\x04\x04\x04\x04"
 
     key = "YELLOW SUBMARINE"

@@ -23,7 +23,9 @@
 # are *different* are 1, and all bits that are the *same* are 0
 
 import sys
-sys.path.append('../lib')
+import os
+DIR_PATH = os.path.join(os.path.dirname(__file__))
+sys.path.append(os.path.join(DIR_PATH, "../lib"))
 
 import unittest
 from binascii import hexlify, unhexlify

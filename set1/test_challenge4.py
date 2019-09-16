@@ -10,7 +10,9 @@
 # #3 should help.)
 
 import sys
-sys.path.append('../lib')
+import os
+DIR_PATH = os.path.join(os.path.dirname(__file__))
+sys.path.append(os.path.join(DIR_PATH, "../lib"))
 
 import unittest
 from pprint import pprint
@@ -19,7 +21,7 @@ from detect_single_character_xor import *
 from results import *
 
 class TestChallenge4(unittest.TestCase):
-    data = open("data/4.txt", encoding="ISO-8859-1")
+    data = open(os.path.join(DIR_PATH, "data/4.txt"), encoding="ISO-8859-1")
     target = "Now that the party is jumping\n"
 
     def test_challenge4(self):

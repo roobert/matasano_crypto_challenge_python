@@ -25,7 +25,9 @@
 # Now detect the block cipher mode the function is using each time.
 
 import sys
-sys.path.append('../lib')
+import os
+DIR_PATH = os.path.join(os.path.dirname(__file__))
+sys.path.append(os.path.join(DIR_PATH, "../lib"))
 
 import unittest
 from pprint import pprint
@@ -35,7 +37,7 @@ from ecb import *
 from key import *
 
 class TestChallenge3(unittest.TestCase):
-    with open("../set2/data/10-decrypted.txt", encoding="ISO-8859-1") as file:
+    with open(os.path.join(DIR_PATH, "../set2/data/10-decrypted.txt"), encoding="ISO-8859-1") as file:
         data = file.read()
 
     def test_challenge3(self):
