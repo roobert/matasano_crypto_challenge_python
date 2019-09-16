@@ -38,7 +38,7 @@ class TestChallenge7(unittest.TestCase):
     key = "YELLOW SUBMARINE"
 
     def test_set7(self):
-        cipher = AES.new(self.key, AES.MODE_ECB)
+        cipher = AES.new(self.key.encode("ASCII"), AES.MODE_ECB)
         data_decrypted = cipher.decrypt(self.data)
 
         # print(data_decrypted.decode("ASCII"))
